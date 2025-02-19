@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch --env-file=.env src/server.ts",
-    "build": "npm install tsup --save-dev"
+    "build": "npm install && tsup"
   },
   "keywords": [],
   "author": "",
