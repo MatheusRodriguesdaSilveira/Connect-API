@@ -1,30 +1,28 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
-import z from 'zod'
+import { z } from 'zod'
 import { env } from '../env'
-import { acccessInviteLink } from '../functions/access-invite-link'
-import { subscribeToEvent } from '../functions/subscribe-to-event'
+import { accessInviteLink } from '../functions/access-invite-link'
 
 export const accessInviteLinkRoute: FastifyPluginAsyncZod = async app => {
   app.get(
     '/invites/:subscriberId',
     {
       schema: {
-        summary: 'Acces invite link and redirects user',
+        summary: 'Access invite link',
+        operationId: 'accessInviteLink',
         tags: ['referral'],
         params: z.object({
           subscriberId: z.string(),
         }),
         response: {
-          201: z.object({
-            subscriberId: z.string(),
-          }),
+          301: z.null(),
         },
       },
     },
     async (request, reply) => {
       const { subscriberId } = request.params
 
-      await acccessInviteLink({ subscriberId })
+      await accessInviteLink({ subscriberId })
 
       const redirectUrl = new URL(env.WEB_URL)
 

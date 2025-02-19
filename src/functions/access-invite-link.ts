@@ -1,13 +1,11 @@
-import { db } from '../drizzle/client'
-import { subscriptions } from '../drizzle/schema/subscriptions'
 import { redis } from '../redis/client'
 
-interface AccesInviteLinkParams {
+interface AccessInviteLinkParams {
   subscriberId: string
 }
 
-export async function acccessInviteLink({
+export async function accessInviteLink({
   subscriberId,
-}: AccesInviteLinkParams) {
+}: AccessInviteLinkParams) {
   await redis.hincrby('referral:access-count', subscriberId, 1)
 }
