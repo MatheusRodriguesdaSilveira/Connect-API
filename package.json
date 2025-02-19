@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch --env-file=.env src/server.ts",
-    "build": "npx tsup"
+    "build": "npm install && npm install typescript --save-dev && npx tsup"
   },
     "engines": {
     "node": "20.15.1"
