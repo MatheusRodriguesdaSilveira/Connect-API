@@ -52,13 +52,13 @@ try {
   app.register(subscribeRoute)
 
   // Server
-  const port = env.PORT || 3333
+  const port = env.PORT || 4000
   app
     .listen({
       port,
     })
     .then(() => {
-      console.log(`HTTP server running on ${process.env.PORT || 3333}! 🚀`)
+      console.log(`HTTP server running on ${port}! 🚀`)
     })
 } catch (error) {
   console.error(error)
