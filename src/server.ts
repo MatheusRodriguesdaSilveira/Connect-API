@@ -8,6 +8,7 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { env } from './env'
+import 'dotenv/config'
 import { accessInviteLinkRoute } from './routes/access-invite-link'
 import { getRankingRoute } from './routes/get-ranking'
 import { getSubscriberInvitesClicksRoute } from './routes/get-subscriber-invite-clicks'
